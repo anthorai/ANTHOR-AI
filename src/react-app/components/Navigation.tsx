@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
 import { useAuth } from '@getmocha/users-service/react';
-import { Menu, Zap, X, LogOut } from 'lucide-react';
+import { Menu, X, LogOut } from 'lucide-react';
+
+const LogoIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 200 200" className={className} fill="currentColor">
+    <path d="M100 20 L170 110 L145 110 L130 85 L70 85 L55 110 L30 110 L100 20 Z M100 50 L85 80 L115 80 L100 50 Z" />
+    <path d="M50 140 Q50 180 100 180 Q150 180 150 140 L130 140 Q130 165 100 165 Q70 165 70 140 Z" />
+  </svg>
+);
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -92,7 +99,7 @@ export default function Navigation() {
                   style={{
                     boxShadow: '0 4px 16px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
                   }}>
-                  <Zap className="w-6 h-6 text-white" />
+                  <LogoIcon className="w-6 h-6 text-white" />
                 </div>
                 <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-lg">
                   Anthor AI
@@ -106,7 +113,7 @@ export default function Navigation() {
                 style={{
                   boxShadow: '0 4px 16px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
                 }}>
-                <Zap className="w-7 h-7 text-white" />
+                <LogoIcon className="w-7 h-7 text-white" />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-lg">
                 Anthor AI
