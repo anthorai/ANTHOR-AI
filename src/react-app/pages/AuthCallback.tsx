@@ -24,7 +24,7 @@ export default function AuthCallback() {
 
         const { data, error: verifyError } = await supabase.auth.verifyOtp({
           token_hash,
-          type: type as any,
+          type: type as 'email' | 'signup' | 'invite' | 'recovery' | 'email_change',
         });
 
         if (verifyError) {
@@ -39,13 +39,13 @@ export default function AuthCallback() {
         setTimeout(() => {
           navigate('/');
         }, 2000);
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error('Authentication failed:', err);
         setStatus('error');
-        setError(err?.message || 'Authentication failed. Please try again.');
+        setError(err instanceof Error ? err.message : 'Authentication failed. Please try again.');
         
         setTimeout(() => {
-          navigate('/signin');
+          navigate('/login');
         }, 3000);
       }
     };
