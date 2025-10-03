@@ -58,6 +58,15 @@ This is a React + Vite application with a Cloudflare Workers backend built using
 - **Wrangler Config**: `wrangler.json` for Cloudflare settings
 
 ## Recent Changes
+- **2025-10-03**: Implemented route protection and session persistence
+  - Created ProtectedRoute component to guard authenticated routes
+  - Protected all routes except home page, login, create-account, and auth/callback
+  - Users must log in or create an account to access protected pages (About, Products, Services, Blog, Contact)
+  - Session persistence through Supabase - users stay logged in after page refresh
+  - Navigation now displays user's full name from metadata with email fallback
+  - User profile dropdown is responsive (224px mobile, 256px desktop) with text truncation
+  - Unauthenticated users redirected to login page when accessing protected routes
+
 - **2025-10-03**: Implemented traditional email/password authentication
   - Replaced passwordless magic link with email/password authentication
   - Updated SupabaseAuthContext with signUp (email, password, fullName) and signIn (email, password) methods
