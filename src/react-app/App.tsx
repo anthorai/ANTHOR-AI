@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import { SupabaseAuthProvider } from "@/react-app/contexts/SupabaseAuthContext";
+import ProtectedRoute from "@/react-app/components/ProtectedRoute";
 import HomePage from "@/react-app/pages/Home";
 import About from "@/react-app/pages/About";
 import Products from "@/react-app/pages/Products";
@@ -17,15 +18,15 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/create-account" element={<CreateAccount />} />
           <Route path="/auth/callback" element={<AuthCallback />} />
-          <Route path="/blog/zyra-revolutionizing-shopify-with-ai" element={<ZyraBlog />} />
+          <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
+          <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
+          <Route path="/services" element={<ProtectedRoute><Services /></ProtectedRoute>} />
+          <Route path="/blog" element={<ProtectedRoute><Blog /></ProtectedRoute>} />
+          <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
+          <Route path="/blog/zyra-revolutionizing-shopify-with-ai" element={<ProtectedRoute><ZyraBlog /></ProtectedRoute>} />
         </Routes>
       </Router>
     </SupabaseAuthProvider>
