@@ -1,7 +1,7 @@
 # Anthor AI - Mocha App
 
 ## Overview
-This is a React + Vite application with a Cloudflare Workers backend built using the Mocha framework. The app features an AI-focused website with passwordless email authentication via Supabase, multiple pages (Home, About, Products, Services, Blog, Contact), and custom branding with "ANKIT RATHOR" in italics.
+This is a React + Vite application with a Cloudflare Workers backend built using the Mocha framework. The app features an AI-focused website with traditional email/password authentication via Supabase, multiple pages (Home, About, Products, Services, Blog, Contact), and custom branding with "ANKIT RATHOR" in italics.
 
 ## Project Architecture
 
@@ -12,18 +12,24 @@ This is a React + Vite application with a Cloudflare Workers backend built using
 - **Build Tool**: Vite 6.2.0
 - **Key Features**:
   - Navigation with routing
-  - Passwordless authentication (Log In, Create Account, OAuth callback)
-  - Supabase authentication with magic link emails
+  - Email/password authentication (Log In, Create Account)
+  - Supabase authentication with traditional credentials
   - Multiple content pages
   - Responsive layout with components
 
 ### Authentication (Supabase)
 - **Provider**: Supabase
-- **Method**: Email-only magic link (passwordless)
+- **Method**: Traditional email/password authentication
 - **Pages**:
-  - `/login` - Log in page with magic link email
-  - `/create-account` - Create account page
-  - `/auth/callback` - OAuth callback handler for magic link verification
+  - `/login` - Log in page with email and password
+  - `/create-account` - Create account page with email, full name, and password
+  - `/auth/callback` - OAuth callback handler
+- **Features**:
+  - Password minimum length: 6 characters
+  - Password confirmation validation on signup
+  - Show/hide password toggle
+  - Form validation with error messages
+  - Success messages with delayed redirect (2-3 seconds)
 - **Environment Variables**:
   - `VITE_SUPABASE_URL` - Supabase project URL
   - `VITE_SUPABASE_ANON_KEY` - Supabase anonymous key
@@ -52,18 +58,22 @@ This is a React + Vite application with a Cloudflare Workers backend built using
 - **Wrangler Config**: `wrangler.json` for Cloudflare settings
 
 ## Recent Changes
+- **2025-10-03**: Implemented traditional email/password authentication
+  - Replaced passwordless magic link with email/password authentication
+  - Updated SupabaseAuthContext with signUp (email, password, fullName) and signIn (email, password) methods
+  - CreateAccount page now has Full Name, Email, Password, and Confirm Password fields
+  - LogIn page now has Email and Password fields
+  - Added password confirmation validation (passwords must match)
+  - Added password length validation (minimum 6 characters)
+  - Added show/hide password toggle with eye icons
+  - Success messages display for 2-3 seconds before redirect
+  - Removed all magic link messaging from UI
+  
 - **2025-10-03**: Authentication pages renamed to Log In and Create Account
   - Renamed `/signin` route to `/login` and SignIn.tsx to LogIn.tsx
   - Renamed `/signup` route to `/create-account` and SignUp.tsx to CreateAccount.tsx
   - Updated all user-facing text from "Sign In/Sign Up" to "Log In/Create Account"
   - Updated Navigation component to use new routes and terminology
-  
-- **2025-10-03**: Implemented Supabase email-only authentication
-  - Replaced Google OAuth with passwordless magic link authentication
-  - Created SupabaseAuthContext for authentication state management
-  - Updated authentication pages to use Supabase magic links
-  - Added proper OTP verification in AuthCallback page
-  - Configured environment variables for Supabase credentials
   
 - **2025-10-03**: Updated branding
   - Changed all instances to "ANKIT RATHOR" in italic style
@@ -95,8 +105,9 @@ src/
 ```
 
 ## Notes
-- The project uses Supabase for passwordless authentication via magic links
+- The project uses Supabase for traditional email/password authentication
 - All branding uses "ANKIT RATHOR" in italics throughout the application
 - Authentication pages use "Log In" and "Create Account" terminology (not "Sign In/Sign Up")
 - Requires VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY environment variables
-- Magic links expire after 1 hour for security
+- Passwords must be at least 6 characters long
+- User full names are stored in Supabase user metadata during signup
