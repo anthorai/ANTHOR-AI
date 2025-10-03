@@ -3,19 +3,27 @@ import { Link, useNavigate } from 'react-router';
 import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
 import { 
   UserPlus, 
-  Shield,
   AlertCircle,
   Loader2,
   Zap,
   Mail,
-  CheckCircle
+  Lock,
+  User,
+  CheckCircle,
+  Eye,
+  EyeOff
 } from 'lucide-react';
 import Layout from '@/react-app/components/Layout';
 
 export default function CreateAccount() {
   const navigate = useNavigate();
-  const { user, signInWithEmail, loading } = useSupabaseAuth();
+  const { user, signUp, loading } = useSupabaseAuth();
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>('');
   const [success, setSuccess] = useState(false);
@@ -33,11 +41,26 @@ export default function CreateAccount() {
     }
   }, [user, navigate]);
 
-  const handleEmailSignUp = async (e: React.FormEvent) => {
+  const handleCreateAccount = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    if (!fullName.trim()) {
+      setError('Please enter your full name');
+      return;
+    }
+
     if (!email || !email.includes('@')) {
       setError('Please enter a valid email address');
+      return;
+    }
+
+    if (!password || password.length < 6) {
+      setError('Password must be at least 6 characters long');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setError('Passwords do not match');
       return;
     }
 
@@ -46,16 +69,19 @@ export default function CreateAccount() {
       setError('');
       setSuccess(false);
       
-      const { error } = await signInWithEmail(email);
+      const { error } = await signUp(email, password, fullName);
       
       if (error) {
-        setError(error.message || 'Failed to send magic link. Please try again.');
+        setError(error.message || 'Failed to create account. Please try again.');
       } else {
         setSuccess(true);
+        setTimeout(() => {
+          navigate('/');
+        }, 3000);
       }
     } catch (err) {
       console.error('Create account failed:', err);
-      setError('Failed to send magic link. Please try again.');
+      setError('Failed to create account. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -74,7 +100,7 @@ export default function CreateAccount() {
               Create Your Account
             </h1>
             <p className="text-slate-300">
-              Enter your email to get started with a secure magic link
+              Enter your details to get started with Anthor AI
             </p>
           </div>
           
@@ -93,9 +119,9 @@ export default function CreateAccount() {
               <div className="mb-6 p-4 bg-green-900/20 border border-green-700/50 rounded-lg flex items-start space-x-3">
                 <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="text-green-400 font-semibold mb-1">Check Your Email!</h3>
+                  <h3 className="text-green-400 font-semibold mb-1">Account Created Successfully!</h3>
                   <p className="text-green-300 text-sm">
-                    We've sent a magic link to <strong>{email}</strong>. Click the link to complete your account setup.
+                    Welcome to Anthor AI! Redirecting you to the dashboard...
                   </p>
                 </div>
               </div>
@@ -123,68 +149,124 @@ export default function CreateAccount() {
               </div>
             </div>
             
-            <form onSubmit={handleEmailSignUp} className="mb-6">
-              <div className="mb-4">
+            <form onSubmit={handleCreateAccount} className="space-y-4">
+              <div>
+                <label htmlFor="fullName" className="block text-sm font-medium text-slate-300 mb-2">
+                  Full Name
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <User className="h-5 w-5 text-slate-400" />
+                  </div>
+                  <input
+                    id="fullName"
+                    type="text"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    placeholder="John Doe"
+                    className="w-full pl-10 pr-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    disabled={isLoading}
+                  />
+                </div>
+              </div>
+
+              <div>
                 <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
                   Email Address
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <Mail className="h-5 w-5 text-slate-400" />
                   </div>
                   <input
                     id="email"
                     type="email"
-                    required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="your.email@example.com"
-                    disabled={isLoading || success}
-                    className="w-full pl-12 pr-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full pl-10 pr-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    disabled={isLoading}
                   />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium text-slate-300 mb-2">
+                  Password
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Lock className="h-5 w-5 text-slate-400" />
+                  </div>
+                  <input
+                    id="password"
+                    type={showPassword ? 'text' : 'password'}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="••••••••"
+                    className="w-full pl-10 pr-12 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    disabled={isLoading}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-300"
+                  >
+                    {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="confirmPassword" className="block text-sm font-medium text-slate-300 mb-2">
+                  Confirm Password
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Lock className="h-5 w-5 text-slate-400" />
+                  </div>
+                  <input
+                    id="confirmPassword"
+                    type={showConfirmPassword ? 'text' : 'password'}
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    placeholder="••••••••"
+                    className="w-full pl-10 pr-12 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    disabled={isLoading}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-300"
+                  >
+                    {showConfirmPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                  </button>
                 </div>
               </div>
 
               <button
                 type="submit"
-                disabled={isLoading || loading || success}
-                className="w-full flex items-center justify-center px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-                style={{
-                  boxShadow: '0 4px 16px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
-                }}
+                disabled={isLoading}
+                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 disabled:from-slate-600 disabled:to-slate-700 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
               >
                 {isLoading ? (
                   <>
-                    <Loader2 className="w-5 h-5 mr-3 animate-spin" />
-                    Sending Magic Link...
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    <span>Creating Account...</span>
                   </>
                 ) : success ? (
                   <>
-                    <CheckCircle className="w-5 h-5 mr-3" />
-                    Email Sent!
+                    <CheckCircle className="w-5 h-5" />
+                    <span>Account Created!</span>
                   </>
                 ) : (
                   <>
-                    <Mail className="w-5 h-5 mr-3" />
-                    Create Account
+                    <UserPlus className="w-5 h-5" />
+                    <span>Create Account</span>
                   </>
                 )}
               </button>
             </form>
-            
-            <div className="mb-6 p-4 bg-slate-800/50 border border-slate-700 rounded-lg">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-white font-semibold">Passwordless & Secure</h3>
-                  <p className="text-slate-400 text-sm">
-                    No passwords to remember. Create account securely with just your email.
-                  </p>
-                </div>
-              </div>
-            </div>
             
             <div className="mt-6 text-center">
               <p className="text-slate-400">

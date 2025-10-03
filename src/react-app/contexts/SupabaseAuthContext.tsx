@@ -6,7 +6,8 @@ interface AuthContextType {
   user: User | null;
   session: Session | null;
   loading: boolean;
-  signInWithEmail: (email: string) => Promise<{ error: AuthError | null }>;
+  signUp: (email: string, password: string, fullName: string) => Promise<{ error: AuthError | null }>;
+  signIn: (email: string, password: string) => Promise<{ error: AuthError | null }>;
   signOut: () => Promise<{ error: AuthError | null }>;
 }
 
@@ -35,12 +36,23 @@ export function SupabaseAuthProvider({ children }: { children: ReactNode }) {
     return () => subscription.unsubscribe();
   }, []);
 
-  const signInWithEmail = async (email: string) => {
-    const { error } = await supabase.auth.signInWithOtp({
+  const signUp = async (email: string, password: string, fullName: string) => {
+    const { error } = await supabase.auth.signUp({
       email,
+      password,
       options: {
-        emailRedirectTo: `${window.location.origin}/auth/callback`,
+        data: {
+          full_name: fullName,
+        },
       },
+    });
+    return { error };
+  };
+
+  const signIn = async (email: string, password: string) => {
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
     });
     return { error };
   };
@@ -54,7 +66,8 @@ export function SupabaseAuthProvider({ children }: { children: ReactNode }) {
     user,
     session,
     loading,
-    signInWithEmail,
+    signUp,
+    signIn,
     signOut,
   };
 
