@@ -2,16 +2,17 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
 import { 
-  LogIn, 
+  UserPlus, 
   Shield,
   AlertCircle,
   Loader2,
+  Zap,
   Mail,
   CheckCircle
 } from 'lucide-react';
 import Layout from '@/react-app/components/Layout';
 
-export default function SignIn() {
+export default function CreateAccount() {
   const navigate = useNavigate();
   const { user, signInWithEmail, loading } = useSupabaseAuth();
   const [email, setEmail] = useState('');
@@ -20,11 +21,11 @@ export default function SignIn() {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    document.title = 'Sign In — Anthor AI';
+    document.title = 'Create Account — Anthor AI';
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Sign in to your Anthor AI account.');
+      metaDescription.setAttribute('content', 'Create your Anthor AI account and start transforming your business with AI.');
     }
 
     if (user) {
@@ -32,7 +33,7 @@ export default function SignIn() {
     }
   }, [user, navigate]);
 
-  const handleEmailSignIn = async (e: React.FormEvent) => {
+  const handleEmailSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!email || !email.includes('@')) {
@@ -53,7 +54,7 @@ export default function SignIn() {
         setSuccess(true);
       }
     } catch (err) {
-      console.error('Sign in failed:', err);
+      console.error('Create account failed:', err);
       setError('Failed to send magic link. Please try again.');
     } finally {
       setIsLoading(false);
@@ -65,15 +66,15 @@ export default function SignIn() {
       <div className="pt-20 pb-16">
         <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-900/30 backdrop-blur-sm rounded-full border border-blue-700/50 mb-6">
-              <LogIn className="w-4 h-4 text-blue-400 mr-2" />
-              <span className="text-sm text-blue-300">Welcome Back</span>
+            <div className="inline-flex items-center px-4 py-2 bg-purple-900/30 backdrop-blur-sm rounded-full border border-purple-700/50 mb-6">
+              <UserPlus className="w-4 h-4 text-purple-400 mr-2" />
+              <span className="text-sm text-purple-300">Join Anthor AI</span>
             </div>
             <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
-              Sign In
+              Create Your Account
             </h1>
             <p className="text-slate-300">
-              Enter your email to receive a secure magic link
+              Enter your email to get started with a secure magic link
             </p>
           </div>
           
@@ -82,7 +83,7 @@ export default function SignIn() {
               <div className="mb-6 p-4 bg-red-900/20 border border-red-700/50 rounded-lg flex items-start space-x-3">
                 <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="text-red-400 font-semibold mb-1">Sign In Failed</h3>
+                  <h3 className="text-red-400 font-semibold mb-1">Create Account Failed</h3>
                   <p className="text-red-300 text-sm">{error}</p>
                 </div>
               </div>
@@ -94,7 +95,7 @@ export default function SignIn() {
                 <div>
                   <h3 className="text-green-400 font-semibold mb-1">Check Your Email!</h3>
                   <p className="text-green-300 text-sm">
-                    We've sent a magic link to <strong>{email}</strong>. Click the link to sign in.
+                    We've sent a magic link to <strong>{email}</strong>. Click the link to complete your account setup.
                   </p>
                 </div>
               </div>
@@ -106,8 +107,23 @@ export default function SignIn() {
                 <p className="text-blue-300 text-sm">Checking authentication status...</p>
               </div>
             )}
+
+            <div className="mb-6 p-4 bg-gradient-to-r from-blue-900/20 to-purple-900/20 border border-blue-700/50 rounded-lg">
+              <div className="flex items-start space-x-3">
+                <Zap className="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-white font-semibold mb-2">What you'll get with Anthor AI:</h3>
+                  <ul className="space-y-1 text-slate-300 text-sm">
+                    <li>• Access to ZYRA Shopify AI Suite</li>
+                    <li>• AI-powered business automation</li>
+                    <li>• Enterprise-grade AI solutions</li>
+                    <li>• Priority support and updates</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
             
-            <form onSubmit={handleEmailSignIn} className="mb-6">
+            <form onSubmit={handleEmailSignUp} className="mb-6">
               <div className="mb-4">
                 <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
                   Email Address
@@ -150,7 +166,7 @@ export default function SignIn() {
                 ) : (
                   <>
                     <Mail className="w-5 h-5 mr-3" />
-                    Send Magic Link
+                    Create Account
                   </>
                 )}
               </button>
@@ -164,7 +180,7 @@ export default function SignIn() {
                 <div>
                   <h3 className="text-white font-semibold">Passwordless & Secure</h3>
                   <p className="text-slate-400 text-sm">
-                    No passwords to remember. Magic links expire after 1 hour for security.
+                    No passwords to remember. Create account securely with just your email.
                   </p>
                 </div>
               </div>
@@ -172,19 +188,19 @@ export default function SignIn() {
             
             <div className="mt-6 text-center">
               <p className="text-slate-400">
-                New to Anthor AI?{' '}
+                Already have an account?{' '}
                 <Link 
-                  to="/signup" 
+                  to="/login" 
                   className="text-blue-400 hover:text-blue-300 font-semibold transition-colors"
                 >
-                  Create your account
+                  Log in here
                 </Link>
               </p>
             </div>
             
             <div className="mt-6 text-center">
               <p className="text-slate-500 text-xs">
-                Secured by Supabase Auth. By signing in, you agree to our{' '}
+                Secured by Supabase Auth. By creating an account, you agree to our{' '}
                 <Link to="/terms" className="text-blue-400 hover:text-blue-300">Terms of Service</Link>
                 {' '}and{' '}
                 <Link to="/privacy" className="text-blue-400 hover:text-blue-300">Privacy Policy</Link>.

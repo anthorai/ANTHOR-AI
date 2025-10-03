@@ -178,14 +178,14 @@ export default function Navigation() {
                 </div>
               ) : (
                 <Link
-                  to="/signin"
+                  to="/login"
                   className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
                   style={{
                     boxShadow: '0 4px 16px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
                   }}
                   onClick={handleCloseMobileMenu}
                 >
-                  Sign In
+                  Log In
                 </Link>
               )}
             </div>
@@ -273,7 +273,7 @@ export default function Navigation() {
                 </div>
               ) : (
                 <Link
-                  to="/signup"
+                  to="/create-account"
                   onClick={handleCloseMobileMenu}
                   className="flex items-center justify-center w-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl active:scale-95"
                   style={{
