@@ -4,10 +4,7 @@ import { useAuth } from '@getmocha/users-service/react';
 import { Menu, X, LogOut } from 'lucide-react';
 
 const LogoIcon = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 200 200" className={className}>
-    <path d="M100 20 L170 120 L145 120 L130 95 L70 95 L55 120 L30 120 L100 20 Z M100 55 L85 85 L115 85 L100 55 Z" fill="currentColor" />
-    <path d="M60 100 Q80 85 100 90 Q120 95 140 85 Q160 75 180 80 L185 95 Q165 88 145 98 Q125 108 105 103 Q85 98 65 108 Z" fill="#ef4444" />
-  </svg>
+  <img src="/assets/anthor-logo.png" alt="Anthor AI Logo" className={className} />
 );
 
 export default function Navigation() {
@@ -95,12 +92,7 @@ export default function Navigation() {
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
               <Link to="/" className="flex items-center space-x-2 group" onClick={handleCloseMobileMenu}>
-                <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl"
-                  style={{
-                    boxShadow: '0 4px 16px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
-                  }}>
-                  <LogoIcon className="w-6 h-6 text-white" />
-                </div>
+                <LogoIcon className="w-10 h-10 rounded-xl group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl" />
                 <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-lg">
                   Anthor AI
                 </span>
@@ -109,12 +101,7 @@ export default function Navigation() {
 
             {/* Desktop logo */}
             <Link to="/" className="hidden lg:flex items-center space-x-3 group">
-              <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl"
-                style={{
-                  boxShadow: '0 4px 16px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
-                }}>
-                <LogoIcon className="w-7 h-7 text-white" />
-              </div>
+              <LogoIcon className="w-12 h-12 rounded-xl group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl" />
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-lg">
                 Anthor AI
               </span>

@@ -2,10 +2,7 @@ import { Link } from 'react-router';
 import { Mail, MapPin, Phone, Github, Twitter, Linkedin } from 'lucide-react';
 
 const LogoIcon = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 200 200" className={className}>
-    <path d="M100 20 L170 120 L145 120 L130 95 L70 95 L55 120 L30 120 L100 20 Z M100 55 L85 85 L115 85 L100 55 Z" fill="currentColor" />
-    <path d="M60 100 Q80 85 100 90 Q120 95 140 85 Q160 75 180 80 L185 95 Q165 88 145 98 Q125 108 105 103 Q85 98 65 108 Z" fill="#ef4444" />
-  </svg>
+  <img src="/assets/anthor-logo.png" alt="Anthor AI Logo" className={className} />
 );
 
 export default function Footer() {
@@ -20,12 +17,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="flex items-center space-x-3 mb-6">
-              <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl shadow-lg"
-                style={{
-                  boxShadow: '0 4px 16px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
-                }}>
-                <LogoIcon className="w-7 h-7 text-white" />
-              </div>
+              <LogoIcon className="w-12 h-12 rounded-xl shadow-lg" />
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-lg">
                 Anthor AI
               </span>
