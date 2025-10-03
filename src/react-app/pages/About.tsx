@@ -37,18 +37,10 @@ export default function About() {
                     <span className="text-sm text-blue-300">Founder & Lead Engineer</span>
                   </div>
                   <h2 className="text-3xl font-bold text-white mb-6">Ankit Rathor</h2>
-                  <p className="text-slate-300 text-lg leading-relaxed mb-6">
-                    Ankit Rathor is the founder of Anthor AI, a company dedicated to delivering 
-                    advanced AI solutions at a global scale. Combining deep technical expertise 
-                    with entrepreneurial vision, Ankit develops enterprise-grade AI products that 
-                    empower businesses and transform complex challenges into actionable solutions.
-                  </p>
-                  <p className="text-slate-300 leading-relaxed">
-                    Through innovation and a commitment to excellence, Ankit has built Anthor AI 
-                    into a platform that makes sophisticated AI technology accessible, practical, 
-                    and impactful for organizations worldwide. His work reflects a dedication to 
-                    pushing the boundaries of artificial intelligence while creating meaningful 
-                    real-world applications.
+                  <p className="text-slate-300 text-lg leading-relaxed italic">
+                    Founder of Anthor AI, combining deep technical expertise with entrepreneurial vision 
+                    to deliver enterprise-grade AI products that empower businesses globally and transform 
+                    complex challenges into actionable solutions.
                   </p>
                 </div>
                 <div className="relative">
