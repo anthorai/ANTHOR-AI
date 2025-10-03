@@ -32,7 +32,7 @@ export default function Blog() {
     {
       title: 'ZYRA – Revolutionizing Shopify with AI',
       excerpt: 'Discover how ZYRA transforms Shopify stores with AI-powered SEO, automation, and smart optimization.',
-      author: 'Ankit Rathor',
+      author: 'ANKIT RATHOR',
       date: 'December 15, 2024',
       readTime: '8 min read',
       category: 'Product Updates',
@@ -53,7 +53,7 @@ export default function Blog() {
     {
       title: 'Building Scalable AI Solutions: Lessons from 1000+ Implementations',
       excerpt: 'Key insights and best practices learned from implementing AI solutions across diverse industries and business sizes.',
-      author: 'Ankit Rathor',
+      author: 'ANKIT RATHOR',
       date: 'December 5, 2024',
       readTime: '12 min read',
       category: 'Business Insights',
@@ -86,7 +86,7 @@ export default function Blog() {
     },
     {
       title: 'Machine Learning Model Optimization Strategies',
-      author: 'Ankit Rathor',
+      author: 'ANKIT RATHOR',
       date: 'November 28, 2024',
       category: 'AI News',
       readTime: '8 min read'
@@ -170,7 +170,7 @@ export default function Blog() {
                         <div className="flex items-center space-x-4">
                           <div className="flex items-center">
                             <User className="w-4 h-4 mr-1" />
-                            {post.author}
+                            <span className="italic">{post.author}</span>
                           </div>
                           <div className="flex items-center">
                             <Clock className="w-4 h-4 mr-1" />
@@ -229,7 +229,7 @@ export default function Blog() {
                         
                         <div className="flex items-center text-slate-400 text-sm">
                           <User className="w-4 h-4 mr-1" />
-                          <span className="mr-4">{post.author}</span>
+                          <span className="mr-4 italic">{post.author}</span>
                           <span>{post.date}</span>
                         </div>
                       </div>

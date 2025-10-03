@@ -23,7 +23,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-slate-400 mb-6 max-w-md">
-              Shaping the Future with AI. Global leader in AI SaaS solutions, founded by Ankit Rathor. 
+              Shaping the Future with AI. Global leader in AI SaaS solutions, founded by <span className="italic">ANKIT RATHOR</span>. 
               Building next-generation software development tools and enterprise AI solutions.
             </p>
             <div className="flex space-x-4">
@@ -89,7 +89,7 @@ export default function Footer() {
         <div className="border-t border-slate-800 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 text-sm">
-              © 2024 Anthor AI — Founded by Ankit Rathor
+              © 2024 Anthor AI — Founded by <span className="italic">ANKIT RATHOR</span>
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/privacy" className="text-slate-400 hover:text-blue-400 text-sm transition-colors">

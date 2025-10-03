@@ -44,7 +44,7 @@ export default function Home() {
             
             <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed">
               Enterprise AI products, bespoke AI engineering, and fast integrations — founded by{' '}
-              <span className="text-blue-400 font-semibold">Ankit Rathor</span>, combining deep technical expertise 
+              <span className="text-blue-400 font-semibold italic">ANKIT RATHOR</span>, combining deep technical expertise 
               with entrepreneurial vision to deliver advanced AI solutions that empower businesses and transform 
               complex challenges into actionable solutions.
             </p>

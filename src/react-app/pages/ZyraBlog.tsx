@@ -114,7 +114,7 @@ export default function ZyraBlog() {
                 <div className="flex items-center space-x-6 mb-4 md:mb-0">
                   <div className="flex items-center">
                     <User className="w-4 h-4 mr-2" />
-                    <span>Ankit Rathor</span>
+                    <span className="italic">ANKIT RATHOR</span>
                   </div>
                   <div className="flex items-center">
                     <Calendar className="w-4 h-4 mr-2" />
@@ -312,7 +312,7 @@ export default function ZyraBlog() {
                   </p>
                   <div className="flex items-center text-slate-500 text-sm">
                     <User className="w-4 h-4 mr-2" />
-                    <span>Ankit Rathor • 12 min read</span>
+                    <span className="italic">ANKIT RATHOR • 12 min read</span>
                   </div>
                 </div>
               </Link>

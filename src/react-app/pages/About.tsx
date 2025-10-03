@@ -36,7 +36,7 @@ export default function About() {
                     <Users className="w-4 h-4 text-blue-400 mr-2" />
                     <span className="text-sm text-blue-300">Founder & Lead Engineer</span>
                   </div>
-                  <h2 className="text-3xl font-bold text-white mb-6">Ankit Rathor</h2>
+                  <h2 className="text-3xl font-bold text-white mb-6 italic">ANKIT RATHOR</h2>
                   <p className="text-slate-300 text-lg leading-relaxed italic">
                     Founder of Anthor AI, combining deep technical expertise with entrepreneurial vision 
                     to deliver enterprise-grade AI products that empower businesses globally and transform 
@@ -135,7 +135,13 @@ export default function About() {
                       </span>
                       <h3 className="text-xl font-bold text-white">{milestone.title}</h3>
                     </div>
-                    <p className="text-slate-300 leading-relaxed">{milestone.description}</p>
+                    <p className="text-slate-300 leading-relaxed">
+                      {index === 0 ? (
+                        <>
+                          <span className="italic">ANKIT RATHOR</span> establishes Anthor AI with a vision to democratize artificial intelligence for enterprises worldwide.
+                        </>
+                      ) : milestone.description}
+                    </p>
                   </div>
                 </div>
               ))}
