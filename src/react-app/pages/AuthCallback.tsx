@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
-import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
+import { supabase } from '@/react-app/lib/supabase';
 import { Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import Layout from '@/react-app/components/Layout';
 
 export default function AuthCallback() {
   const navigate = useNavigate();
-  const { user } = useSupabaseAuth();
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
   const [error, setError] = useState<string>('');
 
@@ -15,22 +14,35 @@ export default function AuthCallback() {
 
     const handleAuth = async () => {
       try {
-        if (user) {
-          setStatus('success');
-          
-          setTimeout(() => {
-            navigate('/');
-          }, 2000);
-        } else {
-          setTimeout(() => {
-            setStatus('success');
-            navigate('/');
-          }, 2000);
+        const params = new URLSearchParams(window.location.search);
+        const token_hash = params.get('token_hash');
+        const type = params.get('type');
+        
+        if (!token_hash || !type) {
+          throw new Error('Missing authentication token. Please request a new magic link.');
         }
-      } catch (err) {
+
+        const { data, error: verifyError } = await supabase.auth.verifyOtp({
+          token_hash,
+          type: type as any,
+        });
+
+        if (verifyError) {
+          throw verifyError;
+        }
+
+        if (!data.session || !data.user) {
+          throw new Error('Failed to create session. Please try again.');
+        }
+
+        setStatus('success');
+        setTimeout(() => {
+          navigate('/');
+        }, 2000);
+      } catch (err: any) {
         console.error('Authentication failed:', err);
         setStatus('error');
-        setError('Authentication failed. Please try again.');
+        setError(err?.message || 'Authentication failed. Please try again.');
         
         setTimeout(() => {
           navigate('/signin');
@@ -39,7 +51,7 @@ export default function AuthCallback() {
     };
 
     handleAuth();
-  }, [user, navigate]);
+  }, [navigate]);
 
   return (
     <Layout>
