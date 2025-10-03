@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
-import { useAuth } from '@getmocha/users-service/react';
+import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
 import { Menu, X, LogOut } from 'lucide-react';
 
 const LogoIcon = ({ className }: { className?: string }) => (
@@ -12,7 +12,7 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const location = useLocation();
-  const { user, logout } = useAuth();
+  const { user, signOut } = useSupabaseAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +45,7 @@ export default function Navigation() {
 
   const handleLogout = async () => {
     try {
-      await logout();
+      await signOut();
       setUserMenuOpen(false);
     } catch (error) {
       console.error('Logout failed:', error);
@@ -137,12 +137,12 @@ export default function Navigation() {
                     className="flex items-center space-x-3 px-3 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800/50 transition-all duration-200"
                   >
                     <img
-                      src={user.google_user_data.picture || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.google_user_data.name || user.email)}&background=3b82f6&color=fff`}
-                      alt={user.google_user_data.name || 'User'}
+                      src={`https://ui-avatars.com/api/?name=${encodeURIComponent(user.email)}&background=3b82f6&color=fff`}
+                      alt={user.email}
                       className="w-8 h-8 rounded-full border-2 border-blue-500/50"
                     />
                     <span className="hidden lg:block text-sm font-medium">
-                      {user.google_user_data.given_name || user.email}
+                      {user.email.split('@')[0]}
                     </span>
                   </button>
 
@@ -152,13 +152,13 @@ export default function Navigation() {
                       <div className="p-4 border-b border-slate-700/50">
                         <div className="flex items-center space-x-3">
                           <img
-                            src={user.google_user_data.picture || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.google_user_data.name || user.email)}&background=3b82f6&color=fff`}
-                            alt={user.google_user_data.name || 'User'}
+                            src={`https://ui-avatars.com/api/?name=${encodeURIComponent(user.email)}&background=3b82f6&color=fff`}
+                            alt={user.email}
                             className="w-10 h-10 rounded-full border-2 border-blue-500/50"
                           />
                           <div>
                             <p className="text-white font-medium">
-                              {user.google_user_data.name || 'User'}
+                              {user.email.split('@')[0]}
                             </p>
                             <p className="text-slate-400 text-sm">{user.email}</p>
                           </div>
@@ -249,13 +249,13 @@ export default function Navigation() {
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3 px-4 py-3">
                     <img
-                      src={user.google_user_data.picture || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.google_user_data.name || user.email)}&background=3b82f6&color=fff`}
-                      alt={user.google_user_data.name || 'User'}
+                      src={`https://ui-avatars.com/api/?name=${encodeURIComponent(user.email)}&background=3b82f6&color=fff`}
+                      alt={user.email}
                       className="w-10 h-10 rounded-full border-2 border-blue-500/50"
                     />
                     <div>
                       <p className="text-white font-medium">
-                        {user.google_user_data.name || 'User'}
+                        {user.email.split('@')[0]}
                       </p>
                       <p className="text-slate-400 text-sm">{user.email}</p>
                     </div>

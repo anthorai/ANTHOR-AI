@@ -1,19 +1,23 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
-import { useAuth } from '@getmocha/users-service/react';
+import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
 import { 
   LogIn, 
   Shield,
   AlertCircle,
-  Loader2
+  Loader2,
+  Mail,
+  CheckCircle
 } from 'lucide-react';
 import Layout from '@/react-app/components/Layout';
 
 export default function SignIn() {
   const navigate = useNavigate();
-  const { user, redirectToLogin, isPending } = useAuth();
+  const { user, signInWithEmail, loading } = useSupabaseAuth();
+  const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>('');
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     document.title = 'Sign In — Anthor AI';
@@ -23,20 +27,34 @@ export default function SignIn() {
       metaDescription.setAttribute('content', 'Sign in to your Anthor AI account.');
     }
 
-    // Redirect if already authenticated
     if (user) {
       navigate('/');
     }
   }, [user, navigate]);
 
-  const handleGoogleSignIn = async () => {
+  const handleEmailSignIn = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email || !email.includes('@')) {
+      setError('Please enter a valid email address');
+      return;
+    }
+
     try {
       setIsLoading(true);
       setError('');
-      await redirectToLogin();
+      setSuccess(false);
+      
+      const { error } = await signInWithEmail(email);
+      
+      if (error) {
+        setError(error.message || 'Failed to send magic link. Please try again.');
+      } else {
+        setSuccess(true);
+      }
     } catch (err) {
       console.error('Sign in failed:', err);
-      setError('Failed to start sign in process. Please try again.');
+      setError('Failed to send magic link. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -46,7 +64,6 @@ export default function SignIn() {
     <Layout>
       <div className="pt-20 pb-16">
         <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Hero Section */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center px-4 py-2 bg-blue-900/30 backdrop-blur-sm rounded-full border border-blue-700/50 mb-6">
               <LogIn className="w-4 h-4 text-blue-400 mr-2" />
@@ -56,12 +73,11 @@ export default function SignIn() {
               Sign In
             </h1>
             <p className="text-slate-300">
-              Access your Anthor AI account securely with Google
+              Enter your email to receive a secure magic link
             </p>
           </div>
           
           <div className="bg-slate-900/50 backdrop-blur rounded-2xl border border-slate-800 p-8">
-            {/* Error Message */}
             {error && (
               <div className="mb-6 p-4 bg-red-900/20 border border-red-700/50 rounded-lg flex items-start space-x-3">
                 <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
@@ -72,19 +88,50 @@ export default function SignIn() {
               </div>
             )}
 
-            {/* Loading State */}
-            {isPending && (
+            {success && (
+              <div className="mb-6 p-4 bg-green-900/20 border border-green-700/50 rounded-lg flex items-start space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="text-green-400 font-semibold mb-1">Check Your Email!</h3>
+                  <p className="text-green-300 text-sm">
+                    We've sent a magic link to <strong>{email}</strong>. Click the link to sign in.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {loading && (
               <div className="mb-6 p-4 bg-blue-900/20 border border-blue-700/50 rounded-lg flex items-center space-x-3">
                 <Loader2 className="w-5 h-5 text-blue-400 animate-spin" />
                 <p className="text-blue-300 text-sm">Checking authentication status...</p>
               </div>
             )}
             
-            {/* Google OAuth Button */}
-            <div className="mb-6">
+            <form onSubmit={handleEmailSignIn} className="mb-6">
+              <div className="mb-4">
+                <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
+                  Email Address
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <Mail className="h-5 w-5 text-slate-400" />
+                  </div>
+                  <input
+                    id="email"
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="your.email@example.com"
+                    disabled={isLoading || success}
+                    className="w-full pl-12 pr-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  />
+                </div>
+              </div>
+
               <button
-                onClick={handleGoogleSignIn}
-                disabled={isLoading || isPending}
+                type="submit"
+                disabled={isLoading || loading || success}
                 className="w-full flex items-center justify-center px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 style={{
                   boxShadow: '0 4px 16px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
@@ -93,37 +140,36 @@ export default function SignIn() {
                 {isLoading ? (
                   <>
                     <Loader2 className="w-5 h-5 mr-3 animate-spin" />
-                    Connecting...
+                    Sending Magic Link...
+                  </>
+                ) : success ? (
+                  <>
+                    <CheckCircle className="w-5 h-5 mr-3" />
+                    Email Sent!
                   </>
                 ) : (
                   <>
-                    <img 
-                      src="https://developers.google.com/identity/images/g-logo.png" 
-                      alt="Google" 
-                      className="w-5 h-5 mr-3"
-                    />
-                    Sign in with Google
+                    <Mail className="w-5 h-5 mr-3" />
+                    Send Magic Link
                   </>
                 )}
               </button>
-            </div>
+            </form>
             
-            {/* Security Features */}
             <div className="mb-6 p-4 bg-slate-800/50 border border-slate-700 rounded-lg">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg flex items-center justify-center">
                   <Shield className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold">Secure Authentication</h3>
+                  <h3 className="text-white font-semibold">Passwordless & Secure</h3>
                   <p className="text-slate-400 text-sm">
-                    OAuth 2.0 with Google provides enterprise-grade security for your account
+                    No passwords to remember. Magic links expire after 1 hour for security.
                   </p>
                 </div>
               </div>
             </div>
             
-            {/* Sign Up Link */}
             <div className="mt-6 text-center">
               <p className="text-slate-400">
                 New to Anthor AI?{' '}
@@ -136,10 +182,9 @@ export default function SignIn() {
               </p>
             </div>
             
-            {/* Security Notice */}
             <div className="mt-6 text-center">
               <p className="text-slate-500 text-xs">
-                Secured by OAuth 2.0. By signing in, you agree to our{' '}
+                Secured by Supabase Auth. By signing in, you agree to our{' '}
                 <Link to="/terms" className="text-blue-400 hover:text-blue-300">Terms of Service</Link>
                 {' '}and{' '}
                 <Link to="/privacy" className="text-blue-400 hover:text-blue-300">Privacy Policy</Link>.

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
-import { useAuth } from '@getmocha/users-service/react';
+import { useSupabaseAuth } from '@/react-app/contexts/SupabaseAuthContext';
 import { Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import Layout from '@/react-app/components/Layout';
 
 export default function AuthCallback() {
   const navigate = useNavigate();
-  const { exchangeCodeForSessionToken } = useAuth();
+  const { user } = useSupabaseAuth();
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
   const [error, setError] = useState<string>('');
 
@@ -15,19 +15,23 @@ export default function AuthCallback() {
 
     const handleAuth = async () => {
       try {
-        await exchangeCodeForSessionToken();
-        setStatus('success');
-        
-        // Redirect to home page after successful authentication
-        setTimeout(() => {
-          navigate('/');
-        }, 2000);
+        if (user) {
+          setStatus('success');
+          
+          setTimeout(() => {
+            navigate('/');
+          }, 2000);
+        } else {
+          setTimeout(() => {
+            setStatus('success');
+            navigate('/');
+          }, 2000);
+        }
       } catch (err) {
         console.error('Authentication failed:', err);
         setStatus('error');
         setError('Authentication failed. Please try again.');
         
-        // Redirect to sign in page after error
         setTimeout(() => {
           navigate('/signin');
         }, 3000);
@@ -35,7 +39,7 @@ export default function AuthCallback() {
     };
 
     handleAuth();
-  }, [exchangeCodeForSessionToken, navigate]);
+  }, [user, navigate]);
 
   return (
     <Layout>

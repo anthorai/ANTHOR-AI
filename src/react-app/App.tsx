@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router";
-import { AuthProvider } from "@getmocha/users-service/react";
+import { SupabaseAuthProvider } from "@/react-app/contexts/SupabaseAuthContext";
 import HomePage from "@/react-app/pages/Home";
 import About from "@/react-app/pages/About";
 import Products from "@/react-app/pages/Products";
@@ -13,7 +13,7 @@ import AuthCallback from "@/react-app/pages/AuthCallback";
 
 export default function App() {
   return (
-    <AuthProvider>
+    <SupabaseAuthProvider>
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -28,6 +28,6 @@ export default function App() {
           <Route path="/blog/zyra-revolutionizing-shopify-with-ai" element={<ZyraBlog />} />
         </Routes>
       </Router>
-    </AuthProvider>
+    </SupabaseAuthProvider>
   );
 }
