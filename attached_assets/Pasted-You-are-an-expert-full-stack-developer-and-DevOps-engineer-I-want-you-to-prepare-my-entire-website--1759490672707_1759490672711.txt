@@ -1,0 +1,87 @@
+You are an expert full-stack developer and DevOps engineer. I want you to prepare my entire website project for deployment without any errors. Follow these exact steps and ensure production-level readiness:
+
+Code Audit & Error Fixing
+
+Scan all frontend and backend code for syntax errors, broken imports, unused variables, missing dependencies, and incorrect paths.
+
+Optimize and refactor code where needed to prevent runtime crashes.
+
+Ensure all routes/pages/components are connected and functional.
+
+Environment Configuration
+
+Set up a .env file for API keys, database credentials, and sensitive configs.
+
+Ensure no secrets are hardcoded in the codebase.
+
+Use environment variables for production build.
+
+Dependencies & Build Check
+
+Run npm install (or yarn install) to verify all dependencies are installed.
+
+Remove unnecessary or unused packages.
+
+Run npm run build (or framework-specific build command) and confirm there are no errors/warnings.
+
+Database & API Readiness
+
+Verify database connection string and ORM/SQL migrations.
+
+Test all API endpoints (GET, POST, PUT, DELETE) for proper responses.
+
+Ensure error handling and fallback mechanisms are in place.
+
+UI/UX & Responsiveness
+
+Test responsiveness across desktop, tablet, and mobile.
+
+Verify that all components (Navbar, Sidebar, Footer, Forms, Buttons, Modals) render correctly.
+
+Check for broken links, missing images, or unstyled components.
+
+Performance Optimization
+
+Minify CSS/JS for production.
+
+Enable caching, compression (gzip/brotli), and image optimization.
+
+Check for Core Web Vitals: load speed, responsiveness, and stability.
+
+Security Hardening
+
+Prevent XSS, CSRF, and SQL injection vulnerabilities.
+
+Use HTTPS-ready configuration.
+
+Hide server errors from the client side.
+
+Testing & Debugging
+
+Run unit tests and integration tests.
+
+Add console error checks and remove unnecessary logs.
+
+Ensure the app runs locally in production mode (npm run start after build).
+
+Deployment Setup
+
+Prepare configuration for hosting (Vercel, Netlify, AWS, or your chosen provider).
+
+Add correct build and start scripts in package.json.
+
+Verify that static assets are correctly linked and served.
+
+Ensure routing works with client-side navigation and server fallback (e.g., Next.js, React Router).
+
+Final Checklist Before Push
+
+npm run lint → No lint errors.
+
+npm run build → No build errors.
+
+npm start → App runs smoothly in production mode.
+
+Git repo is clean, updated, and ready for git push.
+
+Finally, output a deployment-ready version of the project with zero errors, optimized performance, clean code, working build, and production configurations.
