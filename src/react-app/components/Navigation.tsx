@@ -4,9 +4,9 @@ import { useAuth } from '@getmocha/users-service/react';
 import { Menu, X, LogOut } from 'lucide-react';
 
 const LogoIcon = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 200 200" className={className} fill="currentColor">
-    <path d="M100 20 L170 110 L145 110 L130 85 L70 85 L55 110 L30 110 L100 20 Z M100 50 L85 80 L115 80 L100 50 Z" />
-    <path d="M50 140 Q50 180 100 180 Q150 180 150 140 L130 140 Q130 165 100 165 Q70 165 70 140 Z" />
+  <svg viewBox="0 0 200 200" className={className}>
+    <path d="M100 20 L170 120 L145 120 L130 95 L70 95 L55 120 L30 120 L100 20 Z M100 55 L85 85 L115 85 L100 55 Z" fill="currentColor" />
+    <path d="M60 100 Q80 85 100 90 Q120 95 140 85 Q160 75 180 80 L185 95 Q165 88 145 98 Q125 108 105 103 Q85 98 65 108 Z" fill="#ef4444" />
   </svg>
 );
 
