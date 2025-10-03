@@ -148,7 +148,7 @@ export default function Navigation() {
 
                   {/* User Dropdown Menu */}
                   {userMenuOpen && (
-                    <div className="absolute right-0 mt-2 w-64 bg-slate-900/95 backdrop-blur-xl border border-slate-700/50 rounded-xl shadow-2xl z-50">
+                    <div className="absolute right-0 mt-2 w-56 sm:w-64 max-w-[calc(100vw-2rem)] bg-slate-900/95 backdrop-blur-xl border border-slate-700/50 rounded-xl shadow-2xl z-50">
                       <div className="p-4 border-b border-slate-700/50">
                         <div className="flex items-center space-x-3">
                           <img
@@ -156,11 +156,11 @@ export default function Navigation() {
                             alt={user.user_metadata?.full_name || user.email || 'User'}
                             className="w-10 h-10 rounded-full border-2 border-blue-500/50"
                           />
-                          <div>
-                            <p className="text-white font-medium">
+                          <div className="flex-1 min-w-0">
+                            <p className="text-white font-medium truncate">
                               {user.user_metadata?.full_name || user.email?.split('@')[0] || 'User'}
                             </p>
-                            <p className="text-slate-400 text-sm">{user.email}</p>
+                            <p className="text-slate-400 text-xs sm:text-sm truncate">{user.email}</p>
                           </div>
                         </div>
                       </div>
