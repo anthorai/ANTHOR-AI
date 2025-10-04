@@ -63,6 +63,34 @@ This is a React + Vite application with a Cloudflare Workers backend built using
 - **Wrangler Config**: `wrangler.json` for Cloudflare settings
 
 ## Recent Changes
+- **2025-10-04**: Enhanced blog section with category pages and article navigation
+  - Updated Blog.tsx to make category cards clickable with "Read More" text
+  - Added cyan neon glow hover effects to category cards matching Cyberwave theme
+  - Created mock data file (blogArticles.ts) with 17 articles across 3 categories
+  - Built three category pages with full functionality:
+    - `/blog/ai-news` - AI News category (6 articles)
+    - `/blog/product-updates` - Product Updates category (5 articles)
+    - `/blog/business-insights` - Business Insights category (6 articles)
+  - Each category page features:
+    - Breadcrumb navigation (Home > Blog > Category)
+    - Hero section with gradient styling and category-specific colors
+    - Responsive article cards grid (3 columns on desktop, 2 on tablet, 1 on mobile)
+    - Article metadata (author, date, read time, tags)
+    - Hover effects with cyan glow border and shadow
+    - "Read More" buttons linking to individual articles
+    - "Back to Blog Home" button
+    - SEO-optimized meta titles and descriptions
+  - Created generic BlogArticle detail page component (/blog/:slug):
+    - Dynamic article fetching by slug from mock data
+    - Full article header with tags, author info, date, read time
+    - Featured image display
+    - Article content with demo text and structured layout
+    - Breadcrumb navigation and back button
+    - Social share buttons (Twitter, LinkedIn)
+    - 404 fallback page for non-existent articles
+  - Updated App.tsx routing configuration with all blog routes
+  - Changed branding font from Orbitron to Poppins for header and footer
+  
 - **2025-10-03**: Production deployment preparation completed
   - Fixed all lint errors (TypeScript types in AuthCallback, unused imports in types.ts)
   - Created .env.example with all required environment variables
