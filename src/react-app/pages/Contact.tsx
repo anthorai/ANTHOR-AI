@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { 
   Mail, 
   Phone, 
@@ -10,6 +10,7 @@ import {
   CheckCircle
 } from 'lucide-react';
 import Layout from '@/react-app/components/Layout';
+import SEO from '@/react-app/components/SEO';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -22,15 +23,6 @@ export default function Contact() {
     gdprConsent: false
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  useEffect(() => {
-    document.title = 'Contact Anthor AI';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Get in touch with Anthor AI for demos, partnerships, or custom projects.');
-    }
-  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
@@ -83,6 +75,13 @@ export default function Contact() {
 
   return (
     <Layout>
+      <SEO 
+        title="Connect with Anthor AI for AI Solutions and Partnership Opportunities"
+        description="Contact Anthor AI for enterprise AI solutions, partnerships, ZYRA Shopify Suite demos, and custom AI development. Get in touch with our team in Silicon Valley."
+        canonical={`${window.location.origin}/contact`}
+        keywords="contact Anthor AI, AI consultation, enterprise AI partnership, ZYRA demo, AI solutions contact"
+        ogType="website"
+      />
       <div className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}

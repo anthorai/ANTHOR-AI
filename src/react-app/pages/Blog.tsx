@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router';
 import { 
   BookOpen, 
@@ -11,17 +10,9 @@ import {
   Newspaper
 } from 'lucide-react';
 import Layout from '@/react-app/components/Layout';
+import SEO from '@/react-app/components/SEO';
 
 export default function Blog() {
-  useEffect(() => {
-    document.title = 'Anthor AI Blog — AI insights & product updates';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', "Read Anthor AI's latest thinking on AI, product updates, case studies, and industry insights.");
-    }
-  }, []);
-
   const categories = [
     { name: 'AI News', count: 12, icon: Newspaper, color: 'from-blue-500 to-cyan-500', path: '/blog/ai-news' },
     { name: 'Product Updates', count: 8, icon: TrendingUp, color: 'from-purple-500 to-pink-500', path: '/blog/product-updates' },
@@ -95,6 +86,13 @@ export default function Blog() {
 
   return (
     <Layout>
+      <SEO 
+        title="AI News, Product Updates, and Business Insights"
+        description="Stay ahead with Anthor AI's latest insights on AI technology, ZYRA product updates, business automation strategies, and industry trends in artificial intelligence."
+        canonical={`${window.location.origin}/blog`}
+        keywords="AI news, AI blog, product updates, business insights, AI trends, ZYRA updates, AI SaaS blog"
+        ogType="website"
+      />
       <div className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}

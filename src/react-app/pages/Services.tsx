@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router';
 import { 
   Code, 
@@ -14,19 +13,18 @@ import {
   Users
 } from 'lucide-react';
 import Layout from '@/react-app/components/Layout';
+import SEO from '@/react-app/components/SEO';
 
 export default function Services() {
-  useEffect(() => {
-    document.title = 'AI Services — Custom Development & Integrations';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Custom AI development, enterprise integrations, automation, and analytics from Anthor AI.');
-    }
-  }, []);
-
   return (
     <Layout>
+      <SEO 
+        title="Custom AI Development & Enterprise Integration Services"
+        description="Bespoke AI engineering, enterprise integrations, workflow automation, and analytics solutions. Transform your business with custom AI development from Anthor AI."
+        canonical={`${window.location.origin}/services`}
+        keywords="custom AI development, AI consulting services, enterprise AI integration, AI workflow automation, machine learning services"
+        ogType="website"
+      />
       <div className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}

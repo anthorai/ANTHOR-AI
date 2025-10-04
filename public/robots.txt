@@ -1,0 +1,30 @@
+# Anthor AI - Robots.txt
+# Allow all search engines to crawl
+
+User-agent: *
+Allow: /
+Allow: /about
+Allow: /products
+Allow: /services
+Allow: /blog
+Allow: /blog/ai-news
+Allow: /blog/product-updates
+Allow: /blog/business-insights
+Allow: /blog/*
+Allow: /contact
+
+# Disallow authentication and private routes
+Disallow: /login
+Disallow: /create-account
+Disallow: /auth/
+
+# Disallow admin routes if any
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://anthor-ai.com/sitemap.xml
+
+# Crawl delay for polite bots
+Crawl-delay: 1

@@ -1,0 +1,136 @@
+Optimize my complete Anthor AI web application for maximum SEO performance and Google top ranking.
+Follow these detailed requirements step by step:
+
+1️⃣ TECHNICAL SEO OPTIMIZATION
+
+Add meta titles (60–70 characters) and meta descriptions (155–160 characters) for every main page (Home, About, Products, Services, Blog, Contact).
+
+Add canonical tags to prevent duplicate content.
+
+Create a robots.txt file that allows all main pages to be crawled but blocks admin or private routes.
+
+Generate a dynamic XML sitemap that automatically updates with new blog posts or product pages.
+
+Use Next.js dynamic routes and server-side rendering (SSR) for SEO-friendly URLs (e.g., /products/zyra-ai-suite instead of /product?id=123).
+
+Implement Open Graph and Twitter Card meta tags for social sharing previews.
+
+Add alt text for all images with descriptive and keyword-rich content.
+
+Optimize all images with lazy loading and next-gen formats (WebP).
+
+Use schema markup (JSON-LD) for:
+
+Organization (Anthor AI)
+
+Product (ZYRA Shopify Suite)
+
+Article (Blog posts)
+
+FAQ (if applicable on product or service pages)
+
+2️⃣ PERFORMANCE & CORE WEB VITALS
+
+Minify and compress all JS, CSS, and HTML files.
+
+Use Next.js Image Optimization for responsive images.
+
+Enable static caching and CDN for faster page loads.
+
+Reduce Largest Contentful Paint (LCP) below 2.5 seconds.
+
+Reduce Total Blocking Time (TBT) and Cumulative Layout Shift (CLS).
+
+Add lazy loading for below-the-fold content.
+
+Ensure the site is fully responsive for mobile, tablet, and desktop.
+
+3️⃣ CONTENT & ON-PAGE SEO
+
+Add H1, H2, H3 hierarchy on every page (only one H1 per page).
+
+Include target keywords naturally in H1, first paragraph, and meta tags.
+
+Create SEO-optimized content sections for:
+
+Home: “AI Automation Solutions for Business Growth”
+
+Products: “Enterprise AI Software for E-commerce, Marketing, and Workflow Automation”
+
+About: “Anthor AI – Innovating the Future of Intelligent Business Automation”
+
+Blog: “AI News, Product Updates, and Business Insights”
+
+Contact: “Connect with Anthor AI for AI Solutions and Partnership Opportunities”
+
+Add internal linking between related pages and blog posts.
+
+Include FAQ sections at the end of pages with structured data.
+
+4️⃣ KEYWORD STRATEGY
+
+Primary Keywords:
+AI SaaS company, business automation software, AI workflow automation, Shopify AI tools, AI for eCommerce, AI business solutions, AI-powered productivity platform
+
+Secondary Keywords:
+AI-driven business, AI marketing tools, Anthor AI, ZYRA AI Suite, AI software for startups
+
+Use these keywords in:
+
+Page titles
+
+Meta descriptions
+
+Image alt tags
+
+Blog content
+
+Anchor links
+
+5️⃣ BLOG SEO OPTIMIZATION
+
+Each blog should include:
+
+Optimized title with focus keyword
+
+Engaging meta description
+
+H2 subheadings for readability
+
+Internal links to products or other blogs
+
+Social share buttons
+
+Featured image with keyword-rich alt text
+
+Add AI-generated summaries (50–100 words) with schema markup for better indexing.
+
+6️⃣ ANALYTICS & TRACKING
+
+Integrate Google Analytics 4 (GA4) and Google Search Console.
+
+Add Bing Webmaster Tools for additional indexing.
+
+Track keyword ranking, bounce rate, page speed, and user engagement.
+
+7️⃣ ADVANCED STRATEGIES
+
+Add AI-generated FAQs using Anthor Guide AI for SEO snippet optimization.
+
+Implement content clustering (pillar page + supporting blog strategy).
+
+Create backlink strategy for ZYRA product pages (list on product directories, guest posts, AI community websites).
+
+Add structured testimonials/reviews for authority.
+
+Optimize for voice search using conversational keywords.
+
+Final Goal
+
+Transform Anthor AI’s web application into a fully SEO-optimized, high-performance AI SaaS platform that:
+
+Ranks in top 3 results on Google for targeted AI & business automation keywords
+
+Delivers <2.5s page load time globally
+
+Increases organic traffic by 10x within 3 months

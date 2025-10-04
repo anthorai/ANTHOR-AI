@@ -1,20 +1,18 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router';
 import { Users, Target, Lightbulb, Clock, Award, Globe } from 'lucide-react';
 import Layout from '@/react-app/components/Layout';
+import SEO from '@/react-app/components/SEO';
 
 export default function About() {
-  useEffect(() => {
-    document.title = 'About Anthor AI — Our Story & Mission';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', "Learn about Anthor AI's mission, vision, and founder Ankit Rathor — building a top AI SaaS company from the ground up.");
-    }
-  }, []);
-
   return (
     <Layout>
+      <SEO 
+        title="Anthor AI – Innovating the Future of Intelligent Business Automation"
+        description="Founded by Ankit Rathor, Anthor AI delivers enterprise AI software and intelligent automation. Learn about our mission to transform business with AI-powered solutions."
+        canonical={`${window.location.origin}/about`}
+        keywords="Anthor AI, Ankit Rathor, AI SaaS company, AI business automation, enterprise AI solutions, AI company founder"
+        ogType="website"
+      />
       <div className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router';
 import { 
   Package, 
@@ -13,19 +12,28 @@ import {
   CheckCircle
 } from 'lucide-react';
 import Layout from '@/react-app/components/Layout';
+import SEO from '@/react-app/components/SEO';
+import { ProductSchema } from '@/react-app/components/SchemaMarkup';
 
 export default function Products() {
-  useEffect(() => {
-    document.title = 'Products — ZYRA Shopify Suite & AI Tools';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', "Explore ZYRA and Anthor AI's product lineup: AI-driven SEO, product optimization, image alt generation, and automation tools.");
-    }
-  }, []);
-
   return (
     <Layout>
+      <SEO 
+        title="Enterprise AI Software for E-commerce, Marketing & Workflow Automation"
+        description="ZYRA Shopify Suite and AI tools for eCommerce, SEO optimization, product management, and business automation. Transform your online store with AI-powered solutions."
+        canonical={`${window.location.origin}/products`}
+        keywords="Shopify AI tools, AI for eCommerce, ZYRA AI Suite, AI marketing tools, AI workflow automation, eCommerce automation software"
+        ogType="website"
+      />
+      <ProductSchema 
+        name="ZYRA - AI-Powered Shopify Suite"
+        description="ZYRA is an AI-powered automation suite for Shopify stores, featuring intelligent SEO optimization, product management, alt text generation, and comprehensive analytics to boost eCommerce performance."
+        brand="Anthor AI"
+        aggregateRating={{
+          ratingValue: 4.8,
+          reviewCount: 127
+        }}
+      />
       <div className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}

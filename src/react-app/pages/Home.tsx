@@ -2,18 +2,11 @@ import { useEffect } from 'react';
 import { Link } from 'react-router';
 import { ArrowRight, Zap, Shield, Globe, Users, Star, ChevronRight } from 'lucide-react';
 import Layout from '@/react-app/components/Layout';
+import SEO from '@/react-app/components/SEO';
+import { OrganizationSchema } from '@/react-app/components/SchemaMarkup';
 
 export default function Home() {
   useEffect(() => {
-    // Update meta tags
-    document.title = 'Anthor AI — Shaping the Future with AI';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Anthor AI builds enterprise-grade AI software and the ZYRA Shopify Suite. Founded by Ankit Rathor, we deliver intelligent automation and growth tools for businesses worldwide.');
-    }
-    
-    // Load Google Fonts
     const link = document.createElement('link');
     link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap';
     link.rel = 'stylesheet';
@@ -22,6 +15,31 @@ export default function Home() {
 
   return (
     <Layout>
+      <SEO 
+        title="AI Automation Solutions for Business Growth"
+        description="Anthor AI delivers enterprise-grade AI SaaS solutions, workflow automation, and the ZYRA Shopify Suite. Transform your business with intelligent software by Ankit Rathor."
+        canonical={`${window.location.origin}/`}
+        keywords="AI SaaS company, business automation software, AI workflow automation, Shopify AI tools, AI for eCommerce, AI business solutions, AI-powered productivity platform"
+        ogType="website"
+      />
+      <OrganizationSchema 
+        name="Anthor AI"
+        url={window.location.origin}
+        logo={`${window.location.origin}/assets/anthor-logo.png`}
+        description="Anthor AI is an enterprise AI SaaS company founded by Ankit Rathor, delivering intelligent business automation, workflow solutions, and the ZYRA Shopify Suite for eCommerce businesses worldwide."
+        founder="Ankit Rathor"
+        foundingDate="2024"
+        address={{
+          city: "Silicon Valley",
+          state: "CA",
+          country: "United States"
+        }}
+        socialMedia={[
+          "https://twitter.com/AnthorAI",
+          "https://linkedin.com/company/anthor-ai",
+          "https://github.com/anthor-ai"
+        ]}
+      />
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-slate-950"></div>
