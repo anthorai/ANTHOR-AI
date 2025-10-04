@@ -63,6 +63,15 @@ This is a React + Vite application with a Cloudflare Workers backend built using
 - **Wrangler Config**: `wrangler.json` for Cloudflare settings
 
 ## Recent Changes
+- **2025-10-04**: Added location map section to footer
+  - Added new location map section displaying office information
+  - Office details: Silicon Valley, CA, United States
+  - Tagline: "Global operations, local support" (cyan accent)
+  - Interactive map placeholder with hover effects (cyan glow border)
+  - Responsive two-column layout (stacks on mobile)
+  - Map image located at /assets/location-map.png
+  - Maintains Cyberwave dark theme consistency
+
 - **2025-10-04**: Enhanced blog section with category pages and article navigation
   - Updated Blog.tsx to make category cards clickable with "Read More" text
   - Added cyan neon glow hover effects to category cards matching Cyberwave theme
