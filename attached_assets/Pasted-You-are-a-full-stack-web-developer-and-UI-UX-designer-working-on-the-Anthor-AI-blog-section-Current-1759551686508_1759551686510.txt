@@ -1,0 +1,116 @@
+You are a full-stack web developer and UI/UX designer working on the Anthor AI blog section.
+Currently, the blog homepage has three cards:
+
+AI News – 12 articles
+
+Product Updates – 8 articles
+
+Business Insights – 15 articles
+
+Now update the app to make these cards clickable, so when a user clicks on a card, it opens a dedicated page showing posts related to that category.
+
+🧱 Implementation Requirements
+1. Structure
+
+Create three new pages under the /blog directory:
+
+/blog/ai-news
+
+/blog/product-updates
+
+/blog/business-insights
+
+Each page should:
+
+Fetch and display relevant articles dynamically (use mock data for now).
+
+Have a clean, professional layout consistent with the main blog theme.
+
+Include:
+
+A hero section (title, subtitle, background banner).
+
+A responsive grid of article cards (image, title, date, short description, “Read More” button).
+
+A breadcrumb navigation (Home > Blog > [Category]).
+
+SEO-optimized titles and meta descriptions.
+
+2. Design Style
+
+Follow Anthor AI brand styling (Cyberwave dark theme).
+
+Background: #0D0D1F
+
+Text: Light gray #EAEAEA
+
+Accent: #00F0FF (Neon Azure)
+
+Hover effect on article cards: neon glow border.
+
+Use smooth fade-in animation for content loading.
+
+3. Example Page Content
+/blog/ai-news
+
+Hero Title: “AI News — Stay Ahead of the Future”
+Subtitle: “Latest breakthroughs, innovations, and global updates in artificial intelligence.”
+Example Articles:
+
+“How GPT-5 is Transforming AI Automation in 2025”
+
+“Top 10 AI Startups Revolutionizing Business”
+
+“The Future of Generative AI: Beyond Text and Image”
+
+“How Anthor AI’s ZYRA Suite Sets a New Benchmark for Shopify AI”
+
+/blog/product-updates
+
+Hero Title: “Anthor AI Product Updates”
+Subtitle: “Discover the newest features, improvements, and roadmap updates from Anthor AI.”
+Example Articles:
+
+“Introducing Anthor Guide AI 2.0 — Smarter, Faster, Simpler”
+
+“ZYRA’s SEO Intelligence Feature Gets Major Upgrade”
+
+“New Cyberwave UI Enhancements for Better User Flow”
+
+“Upcoming Anthor AI Analytics Platform: What to Expect”
+
+/blog/business-insights
+
+Hero Title: “Business Insights — AI Meets Strategy”
+Subtitle: “Deep dives into AI-driven business transformation, strategy, and automation trends.”
+Example Articles:
+
+“How AI Automation Boosts Enterprise Efficiency by 60%”
+
+“5 Ways AI is Reshaping E-commerce in 2025”
+
+“Scaling with AI: Lessons from Anthor AI’s Growth Strategy”
+
+“The Future of Work: AI-Powered Business Models”
+
+4. Functionality
+
+Each article card should link to a /blog/[slug] detail page (e.g. /blog/ai-news/how-gpt5-transforming-ai).
+
+Implement pagination if articles > 10.
+
+Add a sidebar (optional) showing related tags, popular posts, and newsletter signup.
+
+5. Optional Enhancements
+
+Add a search bar on each page to filter articles by title or keyword.
+
+Integrate an AI summary block (powered by Anthor Guide AI) that summarizes the most trending article in each category.
+
+Include social share buttons (LinkedIn, X, Reddit).
+
+Add a “Back to Blog Home” button.
+
+✅ Final Developer Prompt Example
+
+“Update the Anthor AI blog system by adding three category pages: AI News, Product Updates, and Business Insights. Each card on the main blog page should link to its dedicated page. Each category page must include a hero section, dynamic article cards, SEO metadata, and follow the Cyberwave dark theme with responsive neon styling. Use mock JSON data for now and ensure smooth navigation and animations. Each article should have its own slug-based detail page for reading full content.”

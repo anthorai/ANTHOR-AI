@@ -23,9 +23,9 @@ export default function Blog() {
   }, []);
 
   const categories = [
-    { name: 'AI News', count: 12, icon: Newspaper, color: 'from-blue-500 to-cyan-500' },
-    { name: 'Product Updates', count: 8, icon: TrendingUp, color: 'from-purple-500 to-pink-500' },
-    { name: 'Business Insights', count: 15, icon: Lightbulb, color: 'from-cyan-500 to-purple-500' }
+    { name: 'AI News', count: 12, icon: Newspaper, color: 'from-blue-500 to-cyan-500', path: '/blog/ai-news' },
+    { name: 'Product Updates', count: 8, icon: TrendingUp, color: 'from-purple-500 to-pink-500', path: '/blog/product-updates' },
+    { name: 'Business Insights', count: 15, icon: Lightbulb, color: 'from-cyan-500 to-purple-500', path: '/blog/business-insights' }
   ];
 
   const featuredPosts = [
@@ -115,15 +115,19 @@ export default function Blog() {
           <section className="mb-16">
             <div className="grid md:grid-cols-3 gap-6">
               {categories.map((category, index) => (
-                <div key={index} className="group">
-                  <div className="bg-slate-900/50 backdrop-blur rounded-xl border border-slate-800 p-6 hover:border-slate-700 transition-all duration-300 hover:transform hover:scale-105 cursor-pointer">
+                <Link key={index} to={category.path} className="group">
+                  <div className="bg-slate-900/50 backdrop-blur rounded-xl border border-slate-800 p-6 hover:border-cyan-400/50 transition-all duration-300 hover:transform hover:scale-105 cursor-pointer hover:shadow-lg hover:shadow-cyan-400/20">
                     <div className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                       <category.icon className="w-6 h-6 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">{category.name}</h3>
-                    <p className="text-slate-400">{category.count} articles</p>
+                    <p className="text-slate-400 mb-4">{category.count} articles</p>
+                    <div className="flex items-center text-cyan-400 hover:text-cyan-300 font-semibold transition-colors text-sm">
+                      Read More
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </section>
