@@ -2,13 +2,10 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist/client",
   "framework": "vite",
-  "routes": [
+  "rewrites": [
     {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/((?!assets/).*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
