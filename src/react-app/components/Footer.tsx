@@ -19,7 +19,7 @@ export default function Footer() {
             <Link to="/" className="flex items-center space-x-3 mb-6">
               <LogoIcon className="w-12 h-12 rounded-xl shadow-lg" />
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-lg">
-                Anthor AI
+                Anthor Ai
               </span>
             </Link>
             <p className="text-slate-400 mb-6 max-w-md">
@@ -89,7 +89,7 @@ export default function Footer() {
         <div className="border-t border-slate-800 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 text-sm">
-              © 2024 Anthor AI — Founded by <span className="italic">ANKIT RATHOR</span>
+              © 2024 Anthor Ai — Founded by <span className="italic">ANKIT RATHOR</span>
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/privacy" className="text-slate-400 hover:text-blue-400 text-sm transition-colors">
