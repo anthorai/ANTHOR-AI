@@ -86,30 +86,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Location Map Section */}
-        <div className="border-t border-slate-800 pt-8 mt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            {/* Location Info */}
-            <div>
-              <h3 className="text-white font-semibold mb-4 text-xl">Office</h3>
-              <div className="space-y-2">
-                <p className="text-slate-300 text-lg">Silicon Valley, CA</p>
-                <p className="text-slate-400">United States</p>
-                <p className="text-cyan-400 mt-4 font-medium">Global operations, local support</p>
-              </div>
-            </div>
-
-            {/* Map Placeholder */}
-            <div className="w-full h-48 rounded-xl overflow-hidden border border-slate-700 hover:border-cyan-500 transition-all duration-300 shadow-lg hover:shadow-cyan-500/20">
-              <img 
-                src="/assets/location-map.png" 
-                alt="Office Location Map" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-
         <div className="border-t border-slate-800 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 text-sm">
