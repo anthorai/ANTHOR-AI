@@ -94,7 +94,7 @@ export default function Navigation() {
               <Link to="/" className="flex items-center space-x-2 group" onClick={handleCloseMobileMenu}>
                 <LogoIcon className="w-10 h-10 rounded-xl group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl" />
                 <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-lg">
-                  Anthor Ai
+                  ANTHOR-AI
                 </span>
               </Link>
             </div>
@@ -103,7 +103,7 @@ export default function Navigation() {
             <Link to="/" className="hidden lg:flex items-center space-x-3 group">
               <LogoIcon className="w-12 h-12 rounded-xl group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl" />
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-lg">
-                Anthor Ai
+                ANTHOR-AI
               </span>
             </Link>
 
