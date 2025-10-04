@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="flex items-center space-x-3 mb-6">
               <LogoIcon className="w-12 h-12 rounded-xl shadow-lg" />
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-lg" style={{ fontFamily: "'Orbitron', sans-serif" }}>
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-lg" style={{ fontFamily: "'Poppins', sans-serif" }}>
                 ANTHOR-AI
               </span>
             </Link>
