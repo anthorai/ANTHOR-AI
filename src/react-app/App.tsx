@@ -9,8 +9,11 @@ import Blog from "@/react-app/pages/Blog";
 import Contact from "@/react-app/pages/Contact";
 import LogIn from "@/react-app/pages/LogIn";
 import CreateAccount from "@/react-app/pages/CreateAccount";
-import ZyraBlog from "@/react-app/pages/ZyraBlog";
 import AuthCallback from "@/react-app/pages/AuthCallback";
+import AINews from "@/react-app/pages/blog/AINews";
+import ProductUpdates from "@/react-app/pages/blog/ProductUpdates";
+import BusinessInsights from "@/react-app/pages/blog/BusinessInsights";
+import BlogArticle from "@/react-app/pages/blog/BlogArticle";
 
 export default function App() {
   return (
@@ -25,8 +28,11 @@ export default function App() {
           <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
           <Route path="/services" element={<ProtectedRoute><Services /></ProtectedRoute>} />
           <Route path="/blog" element={<ProtectedRoute><Blog /></ProtectedRoute>} />
+          <Route path="/blog/ai-news" element={<ProtectedRoute><AINews /></ProtectedRoute>} />
+          <Route path="/blog/product-updates" element={<ProtectedRoute><ProductUpdates /></ProtectedRoute>} />
+          <Route path="/blog/business-insights" element={<ProtectedRoute><BusinessInsights /></ProtectedRoute>} />
+          <Route path="/blog/:slug" element={<ProtectedRoute><BlogArticle /></ProtectedRoute>} />
           <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
-          <Route path="/blog/zyra-revolutionizing-shopify-with-ai" element={<ProtectedRoute><ZyraBlog /></ProtectedRoute>} />
         </Routes>
       </Router>
     </SupabaseAuthProvider>
