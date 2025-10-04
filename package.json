@@ -36,9 +36,9 @@
   },
   "scripts": {
     "build": "tsc -b && vite build",
-    "cf-typegen": "wrangler types",
-    "check": "tsc && vite build && wrangler deploy --dry-run",
     "dev": "vite",
-    "lint": "eslint ."
+    "preview": "vite preview --port 5000 --host 0.0.0.0",
+    "lint": "eslint .",
+    "vercel-build": "npm run build"
   }
 }
