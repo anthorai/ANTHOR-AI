@@ -27,13 +27,13 @@ export default function Footer() {
               Building next-generation software development tools and enterprise AI solutions.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="p-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl">
+              <a href="https://x.com/anthorai?s=21" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl" aria-label="Follow us on Twitter">
                 <Twitter className="w-5 h-5 text-slate-400 hover:text-blue-400" />
               </a>
-              <a href="#" className="p-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl">
+              <a href="https://www.linkedin.com/in/anthor-ai-141770388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl" aria-label="Connect on LinkedIn">
                 <Linkedin className="w-5 h-5 text-slate-400 hover:text-blue-400" />
               </a>
-              <a href="#" className="p-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl">
+              <a href="https://www.instagram.com/anthor_ai?igsh=MXEwbXA5ejdmM2c2cQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl" aria-label="Follow us on Instagram">
                 <Instagram className="w-5 h-5 text-slate-400 hover:text-blue-400" />
               </a>
             </div>
