@@ -14,6 +14,8 @@ import AINews from "@/react-app/pages/blog/AINews";
 import ProductUpdates from "@/react-app/pages/blog/ProductUpdates";
 import BusinessInsights from "@/react-app/pages/blog/BusinessInsights";
 import BlogArticle from "@/react-app/pages/blog/BlogArticle";
+import PrivacyPolicy from "@/react-app/pages/PrivacyPolicy";
+import TermsOfService from "@/react-app/pages/TermsOfService";
 
 export default function App() {
   return (
@@ -33,6 +35,8 @@ export default function App() {
           <Route path="/blog/business-insights" element={<BusinessInsights />} />
           <Route path="/blog/:slug" element={<BlogArticle />} />
           <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
         </Routes>
       </Router>
     </SupabaseAuthProvider>

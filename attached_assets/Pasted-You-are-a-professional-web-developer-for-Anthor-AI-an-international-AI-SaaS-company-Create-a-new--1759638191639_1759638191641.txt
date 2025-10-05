@@ -1,0 +1,80 @@
+You are a professional web developer for Anthor AI — an international AI SaaS company.
+Create a new page named privacy-policy.jsx inside the /pages or /app directory.
+The page should follow Anthor AI’s Cyberwave Theme (dark futuristic UI with Neon Azure #00F0FF accents).
+
+The layout should include:
+
+A centered headline: “🔒 Privacy Policy”
+
+A short intro paragraph explaining that Anthor AI respects user privacy.
+
+Clean, readable section headers and paragraph spacing.
+
+A back-to-home button styled with Neon blue hover animation.
+
+Then, add the following Privacy Policy content exactly as written below, formatted with clear <h2> and <p> tags:
+
+[Insert the full Privacy Policy text provided earlier here]
+
+
+Technical setup:
+
+File path: /pages/privacy-policy.jsx
+
+SEO meta tags:
+
+Title: “Privacy Policy | Anthor AI”
+
+Description: “Learn how Anthor AI collects, uses, and protects your personal data securely.”
+
+Add smooth scroll animation for transitions between sections.
+
+Make the page mobile-responsive and Retina optimized.
+
+At the end, add a section titled “📩 Contact” with the email:
+support@anthorai.com
+
+Save and preview to ensure no console or routing errors.
+
+PROMPT END ⬆️
+
+⚖️ Prompt to Add Terms of Service Page
+
+PROMPT START ⬇️
+
+You are a professional frontend developer for Anthor AI.
+Create a new page named terms-of-service.jsx in the /pages directory.
+Use the same Cyberwave Theme styling as the Privacy Policy page for brand consistency.
+
+The page should include:
+
+A main title: “⚖️ Terms of Service”
+
+A subheading: “Effective Date: October 5, 2025”
+
+Well-structured sections using <h2> and <p> tags for readability.
+
+Neon hover animations for section headers.
+
+Then, paste the following Terms of Service text content:
+
+[Insert the full Terms of Service text provided earlier here]
+
+
+Technical setup:
+
+File path: /pages/terms-of-service.jsx
+
+SEO meta tags:
+
+Title: “Terms of Service | Anthor AI”
+
+Description: “Review Anthor AI’s Terms of Service outlining user responsibilities and legal guidelines.”
+
+Include a footer link for “Privacy Policy” that routes to /privacy-policy.
+
+Include a Back to Home button at the bottom.
+
+Ensure page responsiveness and consistent font with your Cyberwave design system.
+
+Save, route-check, and preview the page.
