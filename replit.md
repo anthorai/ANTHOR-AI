@@ -97,6 +97,16 @@ This is a React + Vite application with a Cloudflare Workers backend built using
   - Optimized all pages with SEO-friendly titles and descriptions
   - Added canonical URLs and keyword optimization
 
+- **2025-10-05**: Added 4 new blog articles with full content for Recent Posts section
+  - Created "How AI is Revolutionizing Customer Support in 2024" (AI News category)
+  - Created "ZYRA Integration: New Shopify Plus Features" (Product Updates category)
+  - Created "ROI Analysis: Measuring AI Implementation Success" (Business Insights category)
+  - Added full content to "Machine Learning Model Optimization Strategies" (AI News category)
+  - All articles include comprehensive content with introduction, multiple sections, and conclusion
+  - Each article has SEO meta tags, featured images, proper formatting, and Cyberwave theme styling
+  - Fixed "Article Not Found" errors - all Recent Posts links now work correctly
+  - Articles follow Cyberwave dark futuristic UI theme with Neon Azure accents
+
 - **2025-10-05**: Updated company address throughout entire application
   - Changed from previous address to simplified format:
     - Anthor AI Technologies
