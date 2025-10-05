@@ -277,13 +277,13 @@ export default function ZyraBlog() {
                         Experience the future of e-commerce automation today.
                       </p>
                       <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link
-                          to="/contact"
-                          className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 hover:scale-105 inline-flex items-center justify-center"
+                        <button
+                          disabled
+                          className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-8 py-4 rounded-xl text-lg font-semibold opacity-75 cursor-not-allowed inline-flex items-center justify-center"
                         >
                           <Zap className="w-5 h-5 mr-2" />
-                          Try ZYRA Today
-                        </Link>
+                          Coming Soon
+                        </button>
                         <Link
                           to="/products"
                           className="border border-slate-600 hover:border-slate-500 text-slate-300 hover:text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 hover:bg-slate-800/50 inline-flex items-center justify-center"

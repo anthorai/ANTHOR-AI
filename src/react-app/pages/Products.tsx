@@ -89,13 +89,13 @@ export default function Products() {
                   </div>
                   
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Link
-                      to="/contact"
-                      className="inline-flex items-center bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
+                    <button
+                      disabled
+                      className="inline-flex items-center bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-3 rounded-lg font-semibold opacity-75 cursor-not-allowed"
                     >
-                      Try ZYRA
+                      Coming Soon
                       <ArrowRight className="ml-2 w-4 h-4" />
-                    </Link>
+                    </button>
                     <Link
                       to="/contact"
                       className="inline-flex items-center border border-slate-600 hover:border-slate-500 text-slate-300 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-slate-800/50"
