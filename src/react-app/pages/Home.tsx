@@ -30,9 +30,11 @@ export default function Home() {
         founder="Ankit Rathor"
         foundingDate="2024"
         address={{
-          city: "Silicon Valley",
-          state: "CA",
-          country: "United States"
+          streetAddress: "Ground Floor, Innov8 Tech Park, #27, 100 Feet Road, Koramangala",
+          city: "Bengaluru",
+          state: "Karnataka",
+          postalCode: "560034",
+          country: "India"
         }}
         socialMedia={[
           "https://twitter.com/AnthorAI",

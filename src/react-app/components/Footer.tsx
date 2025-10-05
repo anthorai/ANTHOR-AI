@@ -78,8 +78,11 @@ export default function Footer() {
               <li className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 text-slate-400 mt-1" />
                 <span className="text-slate-400">
-                  Silicon Valley, CA<br />
-                  United States
+                  Anthor AI Technologies<br />
+                  Ground Floor, Innov8 Tech Park,<br />
+                  #27, 100 Feet Road, Koramangala,<br />
+                  Bengaluru, Karnataka – 560034<br />
+                  India
                 </span>
               </li>
             </ul>
