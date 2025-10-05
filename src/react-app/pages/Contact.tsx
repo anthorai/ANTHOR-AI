@@ -284,10 +284,8 @@ export default function Contact() {
                       <h3 className="font-semibold text-white mb-1">Office</h3>
                       <div className="text-slate-300">
                         <p>Anthor AI Technologies</p>
-                        <p>Ground Floor, Innov8 Tech Park</p>
-                        <p>#27, 100 Feet Road, Koramangala</p>
-                        <p>Bengaluru, Karnataka – 560034</p>
-                        <p>India</p>
+                        <p>Innov8 Tech Park,</p>
+                        <p>Bengaluru, India</p>
                       </div>
                       <p className="text-slate-400 text-sm mt-1">Global operations, local support</p>
                     </div>

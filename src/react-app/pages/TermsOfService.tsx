@@ -253,14 +253,15 @@ export default function TermsOfService() {
               
               <h3 className="text-xl font-semibold text-white mt-6 mb-3">11.1 Governing Law</h3>
               <p className="text-slate-300 leading-relaxed">
-                These Terms shall be governed by and construed in accordance with the laws of the State of California, United States, 
+                These Terms shall be governed by and construed in accordance with the laws of India, 
                 without regard to its conflict of law provisions.
               </p>
 
               <h3 className="text-xl font-semibold text-white mt-6 mb-3">11.2 Arbitration</h3>
               <p className="text-slate-300 leading-relaxed">
                 Any dispute arising from these Terms or the Services shall be resolved through binding arbitration in accordance with 
-                the rules of the American Arbitration Association, except where prohibited by law.
+                the rules of the Indian Arbitration and Conciliation Act, except where prohibited by law. The seat of arbitration 
+                shall be Bengaluru, India.
               </p>
             </section>
 
@@ -303,7 +304,7 @@ export default function TermsOfService() {
               <div className="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
                 <p className="text-white font-semibold mb-2">Anthor AI Legal Team</p>
                 <p className="text-slate-300">Email: <a href="mailto:support@anthorai.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">support@anthorai.com</a></p>
-                <p className="text-slate-300 mt-2">Address: Anthor AI Technologies, Ground Floor, Innov8 Tech Park, #27, 100 Feet Road, Koramangala, Bengaluru, Karnataka – 560034, India</p>
+                <p className="text-slate-300 mt-2">Address: Anthor AI Technologies, Innov8 Tech Park, Bengaluru, India</p>
               </div>
             </section>
           </div>

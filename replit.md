@@ -97,6 +97,14 @@ This is a React + Vite application with a Cloudflare Workers backend built using
   - Optimized all pages with SEO-friendly titles and descriptions
   - Added canonical URLs and keyword optimization
 
+- **2025-10-05**: Updated company address throughout entire application
+  - Changed from previous address to simplified format:
+    - Anthor AI Technologies
+    - Innov8 Tech Park,
+    - Bengaluru, India
+  - Updated all pages: Footer, Contact, Privacy Policy, Terms of Service, Home (Schema.org markup)
+  - All SEO meta descriptions and contact information now reflect Bengaluru location
+
 - **2025-10-04**: Enhanced blog section with category pages and article navigation
   - Updated Blog.tsx to make category cards clickable with "Read More" text
   - Added cyan neon glow hover effects to category cards matching Cyberwave theme

@@ -30,10 +30,9 @@ export default function Home() {
         founder="Ankit Rathor"
         foundingDate="2024"
         address={{
-          streetAddress: "Ground Floor, Innov8 Tech Park, #27, 100 Feet Road, Koramangala",
+          street: "Innov8 Tech Park",
           city: "Bengaluru",
           state: "Karnataka",
-          postalCode: "560034",
           country: "India"
         }}
         socialMedia={[

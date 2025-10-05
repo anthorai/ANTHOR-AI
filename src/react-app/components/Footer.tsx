@@ -79,10 +79,8 @@ export default function Footer() {
                 <MapPin className="w-4 h-4 text-slate-400 mt-1" />
                 <span className="text-slate-400">
                   Anthor AI Technologies<br />
-                  Ground Floor, Innov8 Tech Park,<br />
-                  #27, 100 Feet Road, Koramangala,<br />
-                  Bengaluru, Karnataka – 560034<br />
-                  India
+                  Innov8 Tech Park,<br />
+                  Bengaluru, India
                 </span>
               </li>
             </ul>
