@@ -39,7 +39,8 @@ export default function Blog() {
       readTime: '5 min read',
       category: 'Product Updates',
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=300&fit=crop',
-      tags: ['ZYRA', 'Update', 'Analytics', 'Features']
+      tags: ['ZYRA', 'Update', 'Analytics', 'Features'],
+      slug: 'zyra-2-0-enhanced-analytics-predictive-intelligence'
     },
     {
       title: 'Building Scalable AI Solutions: Lessons from 1000+ Implementations',
@@ -49,7 +50,8 @@ export default function Blog() {
       readTime: '12 min read',
       category: 'Business Insights',
       image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=300&fit=crop',
-      tags: ['AI', 'Scalability', 'Best Practices', 'Enterprise']
+      tags: ['AI', 'Scalability', 'Best Practices', 'Enterprise'],
+      slug: 'building-scalable-ai-solutions-1000-implementations'
     }
   ];
 
@@ -134,13 +136,6 @@ export default function Blog() {
           <section className="mb-16">
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-3xl font-bold text-white">Featured Articles</h2>
-              <Link 
-                to="/blog/all"
-                className="text-blue-400 hover:text-blue-300 font-semibold flex items-center transition-colors"
-              >
-                View All
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
             </div>
             
             <div className="grid lg:grid-cols-3 gap-8">

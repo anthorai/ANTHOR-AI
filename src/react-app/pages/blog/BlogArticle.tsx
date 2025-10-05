@@ -119,26 +119,58 @@ export default function BlogArticle() {
                 </p>
                 
                 <div className="space-y-6 text-slate-300">
-                  <p>
-                    This is a demo article showcasing the blog functionality of Anthor AI. 
-                    In a production environment, this would contain the full article content 
-                    with rich text, images, code snippets, and other media.
-                  </p>
-                  
-                  <h2 className="text-2xl font-bold text-white mt-8 mb-4">Key Highlights</h2>
-                  <ul className="list-disc list-inside space-y-2 text-slate-300">
-                    <li>Deep insights into {article.category.toLowerCase()} trends</li>
-                    <li>Practical examples and real-world applications</li>
-                    <li>Expert analysis from the Anthor AI team</li>
-                    <li>Actionable takeaways for your business</li>
-                  </ul>
-                  
-                  <h2 className="text-2xl font-bold text-white mt-8 mb-4">Conclusion</h2>
-                  <p>
-                    Stay tuned for more insights from Anthor AI. Subscribe to our newsletter 
-                    to get the latest updates on AI technology, product announcements, and 
-                    business strategies delivered to your inbox.
-                  </p>
+                  {article.content && article.content.sections ? (
+                    <>
+                      {article.content.introduction && (
+                        <p className="text-lg leading-relaxed whitespace-pre-line">
+                          {article.content.introduction}
+                        </p>
+                      )}
+                      
+                      {article.content.sections.map((section, index) => (
+                        <div key={index} className="mt-8">
+                          <h2 className="text-2xl font-bold text-white mb-4">
+                            {section.heading}
+                          </h2>
+                          <p className="leading-relaxed whitespace-pre-line">
+                            {section.content}
+                          </p>
+                        </div>
+                      ))}
+                      
+                      {article.content.conclusion && (
+                        <>
+                          <h2 className="text-2xl font-bold text-white mt-8 mb-4">Conclusion</h2>
+                          <p className="leading-relaxed whitespace-pre-line">
+                            {article.content.conclusion}
+                          </p>
+                        </>
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      <p>
+                        This is a demo article showcasing the blog functionality of Anthor AI. 
+                        In a production environment, this would contain the full article content 
+                        with rich text, images, code snippets, and other media.
+                      </p>
+                      
+                      <h2 className="text-2xl font-bold text-white mt-8 mb-4">Key Highlights</h2>
+                      <ul className="list-disc list-inside space-y-2 text-slate-300">
+                        <li>Deep insights into {article.category.toLowerCase()} trends</li>
+                        <li>Practical examples and real-world applications</li>
+                        <li>Expert analysis from the Anthor AI team</li>
+                        <li>Actionable takeaways for your business</li>
+                      </ul>
+                      
+                      <h2 className="text-2xl font-bold text-white mt-8 mb-4">Conclusion</h2>
+                      <p>
+                        Stay tuned for more insights from Anthor AI. Subscribe to our newsletter 
+                        to get the latest updates on AI technology, product announcements, and 
+                        business strategies delivered to your inbox.
+                      </p>
+                    </>
+                  )}
                 </div>
               </div>
             </div>

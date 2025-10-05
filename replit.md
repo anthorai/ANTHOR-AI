@@ -68,6 +68,20 @@ This is a React + Vite application with a Cloudflare Workers backend built using
   - `VITE_SUPABASE_ANON_KEY` - Supabase anonymous key
 
 ## Recent Changes
+- **2025-10-05**: Fixed blog feature with full article content
+  - Added detailed article content for three featured articles:
+    - "ZYRA – Revolutionizing Shopify with AI" (Product Updates)
+    - "ZYRA 2.0: Enhanced Analytics and Predictive Intelligence" (Product Updates)
+    - "Building Scalable AI Solutions: Lessons from 1000+ Implementations" (Business Insights)
+  - Each article now has comprehensive content with introduction, multiple sections, and conclusion
+  - Updated BlogArticle interface to support structured content (introduction, sections[], conclusion)
+  - Modified BlogArticle.tsx component to render full article content dynamically
+  - Made all blog routes publicly accessible (removed authentication requirement for SEO and accessibility)
+  - Fixed Blog.tsx to include proper slugs for all featured articles
+  - Fixed TypeScript compilation errors (removed tsconfig.worker.json reference)
+  - Updated vite.config.ts with specific Replit host allowance
+  - All "Read More" buttons now link to working article pages with complete content
+
 - **2025-10-04**: Configured for Vercel deployment
   - Created vercel.json with proper filesystem-first routing
   - Updated vite.config.ts to remove Cloudflare dependencies
@@ -125,8 +139,9 @@ This is a React + Vite application with a Cloudflare Workers backend built using
 
 - **2025-10-03**: Implemented route protection and session persistence
   - Created ProtectedRoute component to guard authenticated routes
-  - Protected all routes except home page, login, create-account, and auth/callback
-  - Users must log in or create an account to access protected pages (About, Products, Services, Blog, Contact)
+  - Protected routes: About, Products, Services, Contact (requires authentication)
+  - Public routes: Home, Blog (all blog pages), Log In, Create Account, Auth Callback
+  - Blog routes made public for SEO optimization and content accessibility
   - Session persistence through Supabase - users stay logged in after page refresh
   - Navigation now displays user's full name from metadata with email fallback
   - User profile dropdown is responsive (224px mobile, 256px desktop) with text truncation

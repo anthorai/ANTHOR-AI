@@ -27,11 +27,11 @@ export default function App() {
           <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
           <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
           <Route path="/services" element={<ProtectedRoute><Services /></ProtectedRoute>} />
-          <Route path="/blog" element={<ProtectedRoute><Blog /></ProtectedRoute>} />
-          <Route path="/blog/ai-news" element={<ProtectedRoute><AINews /></ProtectedRoute>} />
-          <Route path="/blog/product-updates" element={<ProtectedRoute><ProductUpdates /></ProtectedRoute>} />
-          <Route path="/blog/business-insights" element={<ProtectedRoute><BusinessInsights /></ProtectedRoute>} />
-          <Route path="/blog/:slug" element={<ProtectedRoute><BlogArticle /></ProtectedRoute>} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/ai-news" element={<AINews />} />
+          <Route path="/blog/product-updates" element={<ProductUpdates />} />
+          <Route path="/blog/business-insights" element={<BusinessInsights />} />
+          <Route path="/blog/:slug" element={<BlogArticle />} />
           <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
         </Routes>
       </Router>
