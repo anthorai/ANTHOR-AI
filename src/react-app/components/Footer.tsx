@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { Mail, MapPin, Phone, Github, Twitter, Linkedin } from 'lucide-react';
+import { Mail, MapPin, Phone, Instagram, Twitter, Linkedin } from 'lucide-react';
 
 const LogoIcon = ({ className }: { className?: string }) => (
   <img src="/assets/anthor-logo.png" alt="Anthor AI Logo" className={className} />
@@ -34,7 +34,7 @@ export default function Footer() {
                 <Linkedin className="w-5 h-5 text-slate-400 hover:text-blue-400" />
               </a>
               <a href="#" className="p-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl">
-                <Github className="w-5 h-5 text-slate-400 hover:text-blue-400" />
+                <Instagram className="w-5 h-5 text-slate-400 hover:text-blue-400" />
               </a>
             </div>
           </div>
