@@ -77,7 +77,7 @@ export default function Contact() {
     <Layout>
       <SEO 
         title="Connect with Anthor AI for AI Solutions and Partnership Opportunities"
-        description="Contact Anthor AI for enterprise AI solutions, partnerships, ZYRA Shopify Suite demos, and custom AI development. Get in touch with our team in Bengaluru, India."
+        description="Contact Anthor AI for enterprise AI solutions, partnerships, ZYRA Shopify Suite demos, and custom AI development. Get in touch with our team in Indore, India."
         canonical={`${window.location.origin}/contact`}
         keywords="contact Anthor AI, AI consultation, enterprise AI partnership, ZYRA demo, AI solutions contact"
         ogType="website"
@@ -285,7 +285,7 @@ export default function Contact() {
                       <div className="text-slate-300">
                         <p>Anthor AI Technologies</p>
                         <p>Innov8 Tech Park,</p>
-                        <p>Bengaluru, India</p>
+                        <p>Indore, India</p>
                       </div>
                       <p className="text-slate-400 text-sm mt-1">Global operations, local support</p>
                     </div>

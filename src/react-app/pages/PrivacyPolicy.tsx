@@ -253,7 +253,7 @@ export default function PrivacyPolicy() {
               <div className="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
                 <p className="text-white font-semibold mb-2">Anthor AI Privacy Team</p>
                 <p className="text-slate-300">Email: <a href="mailto:support@anthorai.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">support@anthorai.com</a></p>
-                <p className="text-slate-300 mt-2">Address: Anthor AI Technologies, Innov8 Tech Park, Bengaluru, India</p>
+                <p className="text-slate-300 mt-2">Address: Anthor AI Technologies, Innov8 Tech Park, Indore, India</p>
               </div>
             </section>
           </div>

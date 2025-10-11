@@ -80,7 +80,7 @@ export default function Footer() {
                 <span className="text-slate-400">
                   Anthor AI Technologies<br />
                   Innov8 Tech Park,<br />
-                  Bengaluru, India
+                  Indore, India
                 </span>
               </li>
             </ul>

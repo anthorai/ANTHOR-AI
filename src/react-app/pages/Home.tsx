@@ -31,7 +31,7 @@ export default function Home() {
         foundingDate="2024"
         address={{
           street: "Innov8 Tech Park",
-          city: "Bengaluru",
+          city: "Indore",
           state: "Karnataka",
           country: "India"
         }}

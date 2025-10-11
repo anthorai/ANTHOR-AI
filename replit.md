@@ -111,9 +111,9 @@ This is a React + Vite application with a Cloudflare Workers backend built using
   - Changed from previous address to simplified format:
     - Anthor AI Technologies
     - Innov8 Tech Park,
-    - Bengaluru, India
+    - Indore, India
   - Updated all pages: Footer, Contact, Privacy Policy, Terms of Service, Home (Schema.org markup)
-  - All SEO meta descriptions and contact information now reflect Bengaluru location
+  - All SEO meta descriptions and contact information now reflect Indore location
 
 - **2025-10-04**: Enhanced blog section with category pages and article navigation
   - Updated Blog.tsx to make category cards clickable with "Read More" text
