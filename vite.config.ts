@@ -7,9 +7,7 @@ export default defineConfig({
   server: {
     host: true,
     port: 5000,
-    allowedHosts: [
-      "3049903a-af38-4439-8b22-b65383be3174-00-22xad90zjylss.sisko.replit.dev"
-    ],
+    allowedHosts: true,
   },
   build: {
     outDir: "dist/client",
